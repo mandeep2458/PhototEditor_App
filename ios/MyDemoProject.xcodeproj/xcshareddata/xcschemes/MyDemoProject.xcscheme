@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "MyDemoProject.app"
-               BlueprintName = "MyDemoProject"
-               ReferencedContainer = "container:MyDemoProject.xcodeproj">
+               BuildableName = "PhotoEditorApp.app"
+               BlueprintName = "PhotoEditorApp"
+               ReferencedContainer = "container:PhotoEditorApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "MyDemoProjectTests.xctest"
-               BlueprintName = "MyDemoProjectTests"
-               ReferencedContainer = "container:MyDemoProject.xcodeproj">
+               BuildableName = "PhotoEditorAppTests.xctest"
+               BlueprintName = "PhotoEditorAppTests"
+               ReferencedContainer = "container:PhotoEditorApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyDemoProject.app"
-            BlueprintName = "MyDemoProject"
-            ReferencedContainer = "container:MyDemoProject.xcodeproj">
+            BuildableName = "PhotoEditorApp.app"
+            BlueprintName = "PhotoEditorApp"
+            ReferencedContainer = "container:PhotoEditorApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyDemoProject.app"
-            BlueprintName = "MyDemoProject"
-            ReferencedContainer = "container:MyDemoProject.xcodeproj">
+            BuildableName = "PhotoEditorApp.app"
+            BlueprintName = "PhotoEditorApp"
+            ReferencedContainer = "container:PhotoEditorApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

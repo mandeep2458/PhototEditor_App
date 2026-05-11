@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "MyDemoProject",
+      withModuleName: "PhotoEditorApp",
       in: window,
       launchOptions: launchOptions
     )

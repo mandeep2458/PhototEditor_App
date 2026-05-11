@@ -6,35 +6,40 @@
  */
 
 import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import React from 'react';
+import { StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { HomeScreen } from './src/Screens/HomeScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RootStackParamList } from './src/Routes/RootStackParamList';
+import { NavigationContainer } from '@react-navigation/native';
+import { PhotoPreviewScreen } from './src/Screens/PhotoPreviewScreen';
+import PixelEraserScreen from './src/Screens/PixelEraserScreen';
+import { ImageContextProvider } from './src/Context/ImageContext';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const Stack=createNativeStackNavigator<RootStackParamList>();
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <ImageContextProvider>
+        <NavigationContainer>
+            <Stack.Navigator>
+                  <Stack.Screen name="Home" component={HomeScreen} />
+                  <Stack.Screen name="PhotoPreview" component={PhotoPreviewScreen} />
+                  <Stack.Screen name="PixelEraser" component={PixelEraserScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+      </ImageContextProvider>   
     </SafeAreaProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
 
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
