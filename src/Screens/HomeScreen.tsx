@@ -1,5 +1,5 @@
 import { View ,Text, StyleSheet, TouchableOpacity, Platform, PermissionsAndroid, ActivityIndicator, Alert} from "react-native";
-import Button from "../Components/Button";
+import PrimaryButton from "../Components/PrimaryButton";
 import { CameraOptions, launchCamera, launchImageLibrary } from "react-native-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -41,14 +41,11 @@ export function HomeScreen(){
             return;
           }
 
-        const imageUri=result.assets?.[0]?.uri;
-        if(imageUri){
-           setImageUri(imageUri);
-          navigation.navigate('PhotoPreview');
-          
-
-        
-        }
+            const imageUri=result.assets?.[0]?.uri;
+            if(imageUri){
+              setImageUri(imageUri);
+              navigation.navigate('PhotoPreview');             
+            }
       }
         const pickImageFromGallery=async()=>{
              setLoading(true);
@@ -93,8 +90,8 @@ export function HomeScreen(){
             <Text>Edit your photos easily</Text>
         </View>
       <View style={{gap:10}}>
-            <Button buttonImage="camera" title="Take Photo" onClick={()=>captureImageFromCamera()}/>
-            <Button buttonImage="photo" title="Choose from Gallery" onClick={()=>pickImageFromGallery()}/>
+            <PrimaryButton buttonImage="camera" title="Take Photo" onClick={()=>captureImageFromCamera()}/>
+            <PrimaryButton buttonImage="photo" title="Choose from Gallery" onClick={()=>pickImageFromGallery()}/>
       </View>
       {isloading && (
             <View style={styles.overlay}>

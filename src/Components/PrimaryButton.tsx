@@ -2,9 +2,9 @@ import React from "react";
 import { TouchableOpacity,StyleSheet, Text, View } from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-function Button({title,onClick,isDisabled=true,buttonImage}:{title:string;onClick:()=>void,isDisabled?:boolean,buttonImage?:string}){
+function PrimaryButton({title,onClick,isDisabled=true,buttonImage}:{title:string;onClick:()=>void,isDisabled?:boolean,buttonImage?:string}){
   return (<TouchableOpacity style={[styles.buttonStyle,!isDisabled&&{opacity:0.7}]} disabled={!isDisabled} onPress={()=>onClick()}>
-               <View style={{flexDirection:"row",gap:10,}}>
+               <View style={{flexDirection:"row",gap:10,alignSelf:"center"}}>
                   {
                      buttonImage&&
                  <MaterialIcons name={buttonImage} size={20} color="#fff" />
@@ -15,7 +15,7 @@ function Button({title,onClick,isDisabled=true,buttonImage}:{title:string;onClic
            
          </TouchableOpacity>);
 }
-export default Button;
+export default PrimaryButton;
 const styles=StyleSheet.create({
      buttonStyle:{
         backgroundColor:"#3478C5",

@@ -12,12 +12,11 @@ import {
 import { UseImageContext } from "../Context/ImageContext";
 import { useEffect, useState } from "react";
 type ColorFilterOptionsProps={
-    imageUri:string,
-   
+   onSaveButtonPressed:()=>void,
     onCancelButtonPressed:()=>void,
 }
 export function ColorFilterOptions(colorFilterOptionsProps:ColorFilterOptionsProps){
-    const {setImageFilterColorMatrix,imageFilterMatrix,selectedFilterId}=UseImageContext();
+    const {setImageFilterColorMatrix,imageUri,imageFilterMatrix,selectedFilterId}=UseImageContext();
     
     const [filters,setfilters] =useState( [
             { id: 'original', label: 'Original',matrix: [
@@ -85,8 +84,6 @@ export function ColorFilterOptions(colorFilterOptionsProps:ColorFilterOptionsPro
             ),isSelected:false },
       ] ) 
    useEffect(()=>{
-       
-
         setfilters(prev=>prev.map(filter=>({
           ...filter,isSelected:filter.id===selectedFilterId
         })));
@@ -101,14 +98,20 @@ export function ColorFilterOptions(colorFilterOptionsProps:ColorFilterOptionsPro
    }
 
     return(<View style={styles.conatiner}>
-          <TouchableOpacity style={{alignSelf:"flex-end"}} onPress={()=>colorFilterOptionsProps.onCancelButtonPressed()}>
-             <Entypo name='cross'  size={25}/>       
-          </TouchableOpacity>
+         
        <FlatList   horizontal  showsHorizontalScrollIndicator={false}
           keyExtractor={item => item.id} data={filters} ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
           renderItem={({item})=>(<FilterOptionCard id={item.id} title={item.label}
-          image={colorFilterOptionsProps.imageUri} matrix={item.matrix} 
+          image={imageUri} matrix={item.matrix} 
           isSelected={item.isSelected} onSelectFilter={()=>onSelectFilter(item.matrix,item.id)}/>)}/>
+          <View style={{flexDirection:"row",justifyContent: 'space-between',}}>
+             <TouchableOpacity style={{alignSelf:"flex-end"}} onPress={()=>colorFilterOptionsProps.onCancelButtonPressed()}>
+                    <Entypo name='cross'  size={25}/>       
+                </TouchableOpacity>
+                <TouchableOpacity style={{alignSelf:"flex-end"}} onPress={()=>colorFilterOptionsProps.onSaveButtonPressed()}>
+                    <Entypo name='check'  size={25}/>       
+                </TouchableOpacity>
+          </View>
     </View>);
     // <View>
     //       <Image source={{uri:colorFilterOptionsProps.imageUri}} style={{height:70,width:70}}/>
@@ -117,7 +120,7 @@ export function ColorFilterOptions(colorFilterOptionsProps:ColorFilterOptionsPro
 }
     const styles = StyleSheet.create({
           conatiner:{
-              paddingTop:10,
+            
               padding:20,
               position: 'absolute',
               left: 0,
@@ -128,7 +131,6 @@ export function ColorFilterOptions(colorFilterOptionsProps:ColorFilterOptionsPro
               borderTopRightRadius: 10,
               gap:10,
               elevation: 10,
-              height:250,
               borderTopStartRadius:20,
               borderTopEndRadius:20,
           }

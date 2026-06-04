@@ -26,7 +26,8 @@ export const ImageContextProvider=({children}:any)=>{
          setImageFilterMatrix(colorMatrix);
         setSelectedFilterId(selectedFilterId);
       }
-      const value={imageUri,setImageUri,imageFilterMatrix,selectedFilterId,setImageFilterColorMatrix};
+      const value={imageUri:imageUri,setImageUri:setImageUri,imageFilterMatrix:imageFilterMatrix,
+        selectedFilterId:selectedFilterId,setImageFilterColorMatrix:setImageFilterColorMatrix};
    return (
     <ImageContext.Provider value={value}>
         {children}

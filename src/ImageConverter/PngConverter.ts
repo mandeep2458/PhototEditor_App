@@ -15,16 +15,16 @@ export const pickAndConvertToPng = async () => {
 
       if (!asset?.uri) return;
 
-      const convertedImage = await ImageResizer.createResizedImage(
-        asset.uri,
-        asset.width ?? 1000,
-        asset.height ?? 1000,
-        'PNG',
-        100,
-        0,
-      );
-      console.log(convertedImage);
-      return convertedImage.uri;
+      // const convertedImage = await ImageResizer.createResizedImage(
+      //   asset.uri,
+      //   asset.width ?? 1000,
+      //   asset.height ?? 1000,
+      //   'PNG',
+      //   100,
+      //   0,
+      // );
+      console.log(asset?.uri);
+      return asset?.uri;
     //   setImageUri(convertedImage.uri);
     } catch (error) {
       console.log('PNG conversion error:', error);
